@@ -1,0 +1,96 @@
+<%-include('partials/header.ejs')%>
+<div class='container' id='value'>
+		<h1>Add new dish</h1>
+		<form action='/dishes' method='POST'>
+  			
+			
+			<div class="row">
+    			<div class="form-group col-4">
+    				<label for="name_of_dish" class="form-label">Dish name</label>
+    				<input type="text" class="form-control" name='name_of_dish' >
+  				</div>
+				
+    			<div class='form-group col-4'>
+					<label for="cuisine" class="form-label">cuisine</label>
+    				<select class='form-select' id='cuisine' name='cuisine'>
+						<option disabled selected>choose--one</option>
+						<option>AMERICAN</option>
+						<option>CHINESE</option>
+						<option>CONTINENTAL</option>
+						<option>CUBAN</option>
+						<option>FRENCH</option>
+						<option>GREEK</option>
+						<option>INDIAN</option>
+						<option>INDONESIAN</option>
+						<option>ITALIAN</option>
+						<option>JAPANESE</option>
+						<option>KOREAN</option>
+						<option>LEBANESE</option>
+						<option>MALAYSIAN</option>
+						<option>MEXICAN</option>
+						<option>PAKISTANI</option>
+						<option>RUSSIAN</option>
+						<option>SINGAPORE</option>
+						<option>SPANISH</option>
+						<option>THAI</option>
+						<option>TIBETAN</option>
+						<option>VIETNAMESE</option>
+					</select>
+				</div>
+				
+				
+  			</div>
+			
+			<div class='row mt-3'>
+				<div class='form-group col-4'>
+					<label for="rating" class="form-label">rating</label>
+					<select class='form-select' name='rating' id='rating'>
+						<option disabled selected>choose rating</option>
+						<option>1</option>
+						<option>2</option>
+						<option>3</option>
+						<option>4</option>
+						<option>5</option>
+					</select>
+				</div>
+				
+				<div class='form-group col-3'>
+					<label for="health_indicator" class="form-label">health_indicator</label>
+    				<input type="text" class="form-control" name='health_indicator' >
+				</div>
+			</div>
+			
+			
+			<div class='row mt-3'>
+				<div class="form-group col-3">
+    				<label class="form-label" for="image">Url:</label>
+					<input type="text" class="form-control" name='image'>
+  				</div>
+				
+				<div class='form-group col-3'>
+					<label for="ingredients" class="form-label">ingredients</label>
+    				<input type="text" class="form-control" name='ingredients' >
+				</div>
+			</div>
+			
+			
+			
+  			<div class="row mt-3">
+    			<div class='form-group col-7'>
+					<label for="description" class="form-label">Description</label>
+    				<textarea name='description' class="form-control" id="description" rows="5"></textarea>	
+				</div>	
+  			</div>
+  			
+			<div class="row mt-3">
+    			<div class='form-group col-7'>
+					<label for="recipe" class="form-label">recipe</label>
+    				<textarea name='recipe' class="form-control" id="recipe" rows="5"></textarea>	
+				</div>	
+  			</div>
+  			<button type="submit" class="btn btn-primary mt-3">Submit</button>
+		</form>
+
+	</div>
+
+<%-include('partials/footer.ejs')%>

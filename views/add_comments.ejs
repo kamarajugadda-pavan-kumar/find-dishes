@@ -1,0 +1,22 @@
+<%-include('partials/header')%>
+<div class='container mt-5'>
+	<h1>
+		Add new comment
+	</h1>
+	<form action='/dishes/<%=dish_id%>/comments' method='post'>
+		<div class='form-group'>
+			<label for='username' class='m-2'>Username</label>
+			<input type='text' name='username' id='username' class='form-control' autofocus placeholder='example : pavan_kumar'>	
+		</div>
+		<div>
+			<label for='comment' class='m-2'>comment</label>
+			<textarea type='text' name='comment' id='comment' rows='8' cols='30' class='form-control' placeholder='yummy dish'></textarea>
+			
+		</div>
+		
+		<input type='hidden' name='dish_id' value='<%=dish_id%>'> 
+		<button type='submit' class='btn btn-primary mt-3'>Post comment</button>
+	</form> 
+</div>
+
+<%-include('partials/footer')%>

@@ -1,0 +1,99 @@
+<%-include('partials/header.ejs')%>
+<div class='container mt-5' id='value'>
+		<h1>Edit dish</h1>
+		<form action='/dishes/<%=edit_dish._id%>/update?_method=PUT' method='POST'>
+  			
+			
+			<div class="row">
+    			<div class="form-group col-4">
+    				<label for="name_of_dish" class="form-label">Dish name</label>
+    				<input type="text" class="form-control" name='name_of_dish' value='<%=edit_dish.name_of_dish%>' >
+  				</div>
+				
+    			<div class='form-group col-4'>
+					<label for="cuisine" class="form-label">cuisine</label>
+    				<select class='form-select' id='cuisine' name='cuisine'>
+						<option disabled>choose--one</option>
+						<option <% edit_dish.cuisine ==='AMERICAN' ? 'selected': ''%>>AMERICAN</option>
+						<option <% edit_dish.cuisine ==='CHINESE' ? 'selected': ''%>>CHINESE</option>
+						<option <% edit_dish.cuisine ==='CONTINENTAL' ? 'selected': ''%>>CONTINENTAL</option>
+						<option <% edit_dish.cuisine ==='CUBAN' ? 'selected': ''%>>CUBAN</option>
+						<option <% edit_dish.cuisine ==='FRENCH' ? 'selected': ''%>>FRENCH</option>
+						<option <% edit_dish.cuisine ==='GREEK' ? 'selected': ''%>>GREEK</option>
+						<option <% edit_dish.cuisine ==='INDIAN' ? 'selected': ''%>>INDIAN</option>
+						<option <% edit_dish.cuisine ==='INDONESIAN' ? 'selected': ''%>>INDONESIAN</option>
+						<option <% edit_dish.cuisine ==='ITALIAN' ? 'selected': ''%>>ITALIAN</option>
+						<option <% edit_dish.cuisine ==='JAPANESE' ? 'selected': ''%>>JAPANESE</option>
+						<option <% edit_dish.cuisine ==='KOREAN' ? 'selected': ''%>>KOREAN</option>
+						<option <% edit_dish.cuisine ==='LEBANESE' ? 'selected': ''%>>LEBANESE</option>
+						<option <% edit_dish.cuisine ==='MALAYSIAN' ? 'selected': ''%>>MALAYSIAN</option>
+						<option <% edit_dish.cuisine ==='MEXICAN' ? 'selected': ''%>>MEXICAN</option>
+						<option <% edit_dish.cuisine ==='PAKISTANI' ? 'selected': ''%>>PAKISTANI</option>
+						<option <% edit_dish.cuisine ==='RUSSIAN' ? 'selected': ''%>>RUSSIAN</option>
+						<option <% edit_dish.cuisine ==='SINGAPORE' ? 'selected': ''%>>SINGAPORE</option>
+						<option <% edit_dish.cuisine ==='SPANISH' ? 'selected': ''%>>SPANISH</option>
+						<option <% edit_dish.cuisine ==='THAI' ? 'selected': ''%>>THAI</option>
+						<option <% edit_dish.cuisine ==='TIBETAN' ? 'selected': ''%>>TIBETAN</option>
+						<option <% edit_dish.cuisine ==='VIETNAMESE' ? 'selected': ''%>>VIETNAMESE</option>
+					</select>
+				</div>
+				
+				
+  			</div>
+			
+			<div class='row mt-3'>
+				<div class='form-group col-4'>
+					<label for="rating" class="form-label">rating</label>
+					<select class='form-select' name='rating' id='rating'>
+						<option disabled>choose rating</option>
+						<option <%=edit_dish.rating ===1 ? 'selected': ''%>>1</option>
+						<option <%=edit_dish.rating ===2 ? 'selected': ''%>>2</option>
+						<option <%=edit_dish.rating ===3 ? 'selected': ''%>>3</option>
+						<option <%=edit_dish.rating ===4 ? 'selected': ''%>>4</option>
+						<option <%=edit_dish.rating ===5 ? 'selected': ''%>>5</option>
+					</select>
+				</div>
+				
+				<div class='form-group col-3'>
+					<label for="health_indicator" class="form-label">health_indicator</label>
+    				<input type="text" class="form-control" name='health_indicator' value='<%=edit_dish.health_indicator%>'>
+				</div>
+			</div>
+			
+			
+			<div class='row mt-3'>
+				<div class="form-group col-3">
+    				<label class="form-label" for="image">Url:</label>
+					<input type="text" class="form-control" name='image' value='<%=edit_dish.image%>'>
+  				</div>
+				
+				<div class='form-group col-3'>
+					<label for="ingredients" class="form-label">ingredients</label>
+    				<input type="text" class="form-control" name='ingredients' value='<%=edit_dish.ingredients%>' >
+				</div>
+			</div>
+			
+			
+			
+  			<div class="row mt-3">
+    			<div class='form-group col-7'>
+					<label for="description" class="form-label">Description</label>
+    				<textarea name='description' class="form-control" id="description" rows="5" ><%=edit_dish.description%></textarea>	
+				</div>	
+  			</div>
+  			
+			<div class="row mt-3">
+    			<div class='form-group col-7'>
+					<label for="recipe" class="form-label">recipe</label>
+    				<textarea name='recipe' class="form-control" id="recipe" rows="5" ><%=edit_dish.recipe%></textarea>	
+				</div>	
+  			</div>
+			<div class='row'>
+				<button type="submit" class="btn btn-outline-info btn-primary mt-3 col-2">Submit</button>
+				<div class='col-3'></div>
+				<button class="btn btn-outline-info btn-primary mt-3 col-2"><a href='/dishes/<%=edit_dish._id%>'></a>Cancel</button>
+			</div>
+		</form>
+	</div>
+
+<%-include('partials/footer.ejs')%>

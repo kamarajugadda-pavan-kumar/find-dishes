@@ -1,0 +1,100 @@
+<%-include('partials/header')%>
+
+<div class='container mt-5'>
+	<div class='row '>
+		<!--------------------------------------left side of the page-------------------------->
+		<div class='col-6 mt-5'>
+			<!------------------------------ Image of the dish and its container-------------------------->
+			<div class='single_image-container'>
+				<img class='mt-0' id='single_image' src=<%=dishInfo.image%> alt='image_file' >
+			</div>
+			
+			
+			<!---------------entire comments box  consisting of individual commnets-------------------->
+			<div class='single_comments_container mt-5 p-2'>
+				<span class='single_dish_comment_header'>Comments:</span>
+			
+				<%foundComments.forEach((comment)=>{%>
+					<!-------------Start of Individual comment------------------>
+					<div class='single_dish_comments_eachComment' >
+						<div class='row'>
+							<img src='/image/profile.svg' class='col-1 ' alt='logo' height='20' width='20'>
+							<div class='col m-0 p-0' style='color:white' ><%=comment.user%></div>
+						</div>
+						
+						<div class='single_dish_comment_text row mb-1 pb-0'>
+							<%=comment.text%>
+						</div>
+						
+						<div class='row mx-4'>
+							<form class='m-0 p-0 col-1' action=<%=`/dishes/${dishInfo._id}/comments/${comment._id}/delete?_method=DELETE`%> method='POST'>
+								<button type='submit' class='btn btn-danger btn-xs '>
+									Delete
+								</button>
+							</form>
+							<div class='col-1 p-0 m-0 '></div>
+							<a class='btn btn-primary btn-xs col-1' href=<%=`/dishes/${dishInfo._id}/comments/${comment._id}/edit`%>>edit</a>
+						</div>
+					</div>
+					<!-------------End of Individual comment------------------->
+				<%})%>
+				<a class='btn btn-sm btn-primary single_dish_addComment_button' href=<%=`/dishes/${dishInfo._id}/comments/new`%>>Add comment</a>
+			</div>
+			
+		</div>
+		
+		
+		
+		<!---------------- Right side of the page ------------------------>
+		<div class='col-6 mt-5'>
+			<h1>
+				<%=dishInfo.name_of_dish%>
+			</h1>
+			<p>
+				<%=dishInfo.description%>
+			</p>
+			<table class="table">
+  				<tbody>
+    				
+    				<tr>
+      					<th scope="row">cuisine:</th>
+      					<td><%=dishInfo.cuisine%></td>
+    				</tr>
+    				<tr>
+      					<th scope="row">ingredients:</th>
+      					<td><%=dishInfo.ingredients%></td>
+    				</tr>
+					<tr>
+    				  <th scope="row">recipe:</th>
+    				  <td><%=dishInfo.recipe%></td>
+    				</tr>
+					<tr>
+      					<th scope="row">rating:</th>
+      					<td><%=dishInfo.rating%></td>
+    				</tr>
+					<tr>
+      					<th scope="row">health_indicator:</th>
+      					<td><%=dishInfo.health_indicator%></td>
+					</tr>
+					
+  				</tbody>
+			</table>
+			<a href='/dishes/<%=dishInfo._id%>/edit' style='text-decoration:none;' class='row'>
+				<button type='submit' class="btn btn-outline-secondary mt-3 " >
+					Edit
+				</button>
+			</a>
+			<form class='row' action='/dishes/<%=dishInfo._id%>/delete?_method=DELETE' method='POST'>
+					<button type='submit' class="btn btn-outline-danger mt-3" >
+						Delete
+					</button>
+			</form>
+			
+		
+		</div>
+	</div>
+	
+	
+</div>
+
+<%-include('partials/footer')%>
